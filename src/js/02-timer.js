@@ -36,31 +36,39 @@ console.log('span[data-seconds]');
 // Объект параметров (из ТЗ)
 const options = {
     // Включает выбор времени
-    enableTime: true, 
-
+    enableTime: true,
     // Отображает средство выбора времени в 24-часовом режиме без выбора AM/PM, если включено.
     time_24hr: true,
-
     // Устанавливает начальную выбранную дату (даты)
     defaultDate: new Date(),
-
     // Регулирует шаг ввода минут (включая прокрутку)
     minuteIncrement: 1,
-
     // Функция(и) для запуска при каждом закрытии календаря
+    /* В методе onClose() обрабатываем дату выбранную пользователем: 
+  если пользователь не выбрал дату в будущем - failure, если верная дата - success*/
     onClose(selectedDates) {
         console.log(selectedDates[0]);
         const nowDate = Date.now(); // фактическое выбраное время в милисекундах
-        console.log(nowDate);
+      console.log(nowDate);
+      if (selectedDates[0] < nowDate) {
+        return Notiflix.Report.warning('WARNING!', 'Select a date in the future.', 'next');        
+      } else {
+        Notiflix.Report.success('SUCCESS', 'The date is correct.', 'ok');
+        startEl.disabled = false;
+      }
     }, 
 };
+
+options.onClose(options);
+
+const calendar = flatpickr('#datetime-picker', options);
 
 //V1 всплывающие предупреждения
 //Notiflix.Notify.warning('Attention!!! Select a date in the future.');
 //Notiflix.Notify.success('The date is correct. Forward');
 
-Notiflix.Report.warning('WARNING!', 'Select a date in the future.', 'next');
-Notiflix.Report.success('SUCCESS', 'The date is correct.', 'ok');
+
+
 
 // Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
 function timeInTwoDigits(value) {
