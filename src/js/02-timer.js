@@ -35,6 +35,7 @@ console.log('span[data-seconds]');
 
 // вешаем слушателя на кнопку start
 startEl.addEventListener('click', start);
+//inputEl.addEventListener('focus', onInputChange);
 
 startEl.disabled = true;
 
@@ -69,8 +70,10 @@ const options = {
     }, 
 };
 
-options.onClose(options);
+//options.onClose(options);
 
+
+//инициализирует библиотеку flatpickr с параметрами options
 const calendar = flatpickr('#datetime-picker', options);
 
 //V1 всплывающие предупреждения
@@ -79,8 +82,7 @@ const calendar = flatpickr('#datetime-picker', options);
 
 
 
-/* Выбираем время */
-
+// Ф-ция принимает объект данных { days, hours, minutes, seconds } и присваивает соотв. значения свойствам textContent, соотв. элементов span 
 function updateTimer({ days, hours, minutes, seconds }) {
     dataDays.textContent = `${ days }`;
     dataHours.textContent = `${ hours }`;
