@@ -33,7 +33,15 @@ console.log('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]');
 console.log('span[data-seconds]');
 
+// вешаем слушателя на кнопку start
+startEl.addEventListener('click', start);
+
 startEl.disabled = true;
+
+// функция запуска таймера
+function start() {
+
+}
 
 // Объект параметров (из ТЗ)
 const options = {
@@ -70,6 +78,15 @@ const calendar = flatpickr('#datetime-picker', options);
 //Notiflix.Notify.success('The date is correct. Forward');
 
 
+
+/* Выбираем время */
+
+function updateTimer({ days, hours, minutes, seconds }) {
+    dataDays.textContent = `${ days }`;
+    dataHours.textContent = `${ hours }`;
+    dataMinutes.textContent = `${ minutes }`;
+    dataSeconds.textContent = `${ seconds }`;
+}
 
 
 // Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
