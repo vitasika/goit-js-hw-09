@@ -56,6 +56,11 @@ const options = {
 };
 
 
+Notiflix.Notify.warning('Memento te hominem esse');
+Notiflix.Notify.success('Sol lucet omnibus');
+
+
+
 // Для подсчета значений используй готовую функцию convertMs, где ms - разница между конечной и текущей датой в миллисекундах.
 
 function convertMs(ms) {
