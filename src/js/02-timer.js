@@ -15,8 +15,8 @@ span[data - minutes],
 span[data - seconds]
 */
 
-const inputEl = document.querySelector('#datetime-picker');
-console.log('#datetime-picker');
+const inputEl = document.querySelector('input#datetime-picker');
+console.log('input#datetime-picker');
 
 const startEl = document.querySelector('button[data-start]');
 console.log('button[data-start]');
@@ -50,6 +50,8 @@ const options = {
     // Функция(и) для запуска при каждом закрытии календаря
     onClose(selectedDates) {
         console.log(selectedDates[0]);
+        const nowDate = Date.now(); // фактическое выбраное время в милисекундах
+        console.log(nowDate);
     }, 
 };
 
