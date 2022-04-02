@@ -6,32 +6,17 @@ import 'flatpickr/dist/flatpickr.min.css';
 // all modules
 import Notiflix from 'notiflix';
 
-/* Выбираем елементы 
-input, 
-button, 
-span[data - days], 
-span[data - hours],
-span[data - minutes], 
-span[data - seconds]
+/* Выбираем елементы input, button, span[data - days], span[data - hours],
+span[data - minutes], span[data - seconds]
 */
 
-const inputEl = document.querySelector('input#datetime-picker');
-console.log('input#datetime-picker');
+const inputEl = document.querySelector('input#datetime-picker'); //console.log('input#datetime-picker');
+const startEl = document.querySelector('button[data-start]'); //console.log('button[data-start]');
+const daysEl = document.querySelector('span[data-days]'); //console.log('span[data-days]');
+const hoursEl = document.querySelector('span[data-hours]'); //console.log('span[data-hours]');
+const minutesEl = document.querySelector('span[data-minutes]'); //console.log('span[data-minutes]');
+const secondsEl = document.querySelector('span[data-seconds]'); //console.log('span[data-seconds]');
 
-const startEl = document.querySelector('button[data-start]');
-console.log('button[data-start]');
-
-const daysEl = document.querySelector('span[data-days]');
-console.log('span[data-days]');
-
-const hoursEl = document.querySelector('span[data-hours]');
-console.log('span[data-hours]');
-
-const minutesEl = document.querySelector('span[data-minutes]');
-console.log('span[data-minutes]');
-
-const secondsEl = document.querySelector('span[data-seconds]');
-console.log('span[data-seconds]');
 
 // вешаем слушателя на кнопку start
 startEl.addEventListener('click', start);
@@ -45,18 +30,15 @@ function start() {
 }
 
 // Объект параметров (из ТЗ)
-const options = {
-    // Включает выбор времени
-    enableTime: true,
-    // Отображает средство выбора времени в 24-часовом режиме без выбора AM/PM, если включено.
-    time_24hr: true,
-    // Устанавливает начальную выбранную дату (даты)
-    defaultDate: new Date(),
-    // Регулирует шаг ввода минут (включая прокрутку)
-    minuteIncrement: 1,
+const options = {    
+    enableTime: true, // Включает выбор времени
+    time_24hr: true, // Отображает средство выбора времени в 24-часовом режиме без выбора AM/PM, если включено.
+    defaultDate: new Date(), // Устанавливает начальную выбранную дату (даты)
+    minuteIncrement: 1, // Регулирует шаг ввода минут (включая прокрутку)
+    
     // Функция(и) для запуска при каждом закрытии календаря
     /* В методе onClose() обрабатываем дату выбранную пользователем: 
-  если пользователь не выбрал дату в будущем - failure, если верная дата - success*/
+    если пользователь не выбрал дату в будущем - warning, если верная дата - success*/
     onClose(selectedDates) {
         console.log(selectedDates[0]);
         const nowDate = Date.now(); // фактическое выбраное время в милисекундах
