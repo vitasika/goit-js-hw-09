@@ -37,7 +37,7 @@ console.log('span[data-seconds]');
 startEl.addEventListener('click', start);
 //inputEl.addEventListener('focus', onInputChange);
 
-startEl.disabled = true;
+//startEl.disabled = true;
 
 // функция запуска таймера
 function start() {
@@ -75,6 +75,7 @@ const options = {
 
 //инициализирует библиотеку flatpickr с параметрами options
 const calendar = flatpickr('#datetime-picker', options);
+console.log(calendar);
 
 //V1 всплывающие предупреждения
 //Notiflix.Notify.warning('Attention!!! Select a date in the future.');
