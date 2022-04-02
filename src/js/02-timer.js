@@ -69,6 +69,9 @@ const options = {
       }
     }, 
 };
+//V1 всплывающие предупреждения
+//Notiflix.Notify.warning('Attention!!! Select a date in the future.');
+//Notiflix.Notify.success('The date is correct. Forward');
 
 //options.onClose(options);
 
@@ -76,12 +79,6 @@ const options = {
 //инициализирует библиотеку flatpickr с параметрами options
 const calendar = flatpickr('#datetime-picker', options);
 console.log(calendar);
-
-//V1 всплывающие предупреждения
-//Notiflix.Notify.warning('Attention!!! Select a date in the future.');
-//Notiflix.Notify.success('The date is correct. Forward');
-
-
 
 // Ф-ция принимает объект данных { days, hours, minutes, seconds } и присваивает соотв. значения свойствам textContent, соотв. элементов span 
 function updateTimer({ days, hours, minutes, seconds }) {
