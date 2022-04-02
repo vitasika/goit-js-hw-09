@@ -56,8 +56,8 @@ const options = {
 };
 
 
-Notiflix.Notify.warning('Memento te hominem esse');
-Notiflix.Notify.success('Sol lucet omnibus');
+Notiflix.Notify.warning('Attention!!! Select a date in the future.');
+Notiflix.Notify.success('The date is correct. Forward');
 
 // Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
 function timeInTwoDigits(value) {
