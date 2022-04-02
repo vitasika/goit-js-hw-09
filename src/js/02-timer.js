@@ -55,9 +55,12 @@ const options = {
     }, 
 };
 
+//V1 всплывающие предупреждения
+//Notiflix.Notify.warning('Attention!!! Select a date in the future.');
+//Notiflix.Notify.success('The date is correct. Forward');
 
-Notiflix.Notify.warning('Attention!!! Select a date in the future.');
-Notiflix.Notify.success('The date is correct. Forward');
+Notiflix.Report.warning('WARNING!', 'Select a date in the future.', 'next');
+Notiflix.Report.success('SUCCESS', 'The date is correct.', 'ok');
 
 // Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
 function timeInTwoDigits(value) {
