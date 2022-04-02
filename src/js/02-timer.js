@@ -59,10 +59,12 @@ const options = {
 Notiflix.Notify.warning('Memento te hominem esse');
 Notiflix.Notify.success('Sol lucet omnibus');
 
-
+// Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
+function timeInTwoDigits(value) {
+    return String(value).padStart(2, '0');
+}
 
 // Для подсчета значений используй готовую функцию convertMs, где ms - разница между конечной и текущей датой в миллисекундах.
-
 function convertMs(ms) {
     // Number of milliseconds per unit of time
     const second = 1000;
@@ -71,13 +73,13 @@ function convertMs(ms) {
     const day = hour * 24;
 
   // Remaining days
-    const days = Math.floor(ms / day);
+    const days = timeInTwoDigits(Math.floor(ms / day));
   // Remaining hours
-    const hours = Math.floor((ms % day) / hour);
+    const hours = timeInTwoDigits(Math.floor((ms % day) / hour));
   // Remaining minutes
-    const minutes = Math.floor(((ms % day) % hour) / minute);
+    const minutes = timeInTwoDigits(Math.floor(((ms % day) % hour) / minute));
   // Remaining seconds
-    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+    const seconds = timeInTwoDigits(Math.floor((((ms % day) % hour) % minute) / second));
 
     return { days, hours, minutes, seconds };
 }
@@ -87,7 +89,4 @@ console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
 
-// Принимает число, приводит к строке и добавляет 0 если число меньше 2-х знаков
-function timeTwoZero(value) {
-    return String(value).padStart(2, '0');
-}
+
