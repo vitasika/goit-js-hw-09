@@ -17,7 +17,8 @@ const hoursEl = document.querySelector('span[data-hours]'); //console.log('span[
 const minutesEl = document.querySelector('span[data-minutes]'); //console.log('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]'); //console.log('span[data-seconds]');
 
-
+let selectedDate = null;
+let intervalId = null;
 // вешаем слушателя на кнопку start
 startEl.addEventListener('click', start);
 //inputEl.addEventListener('focus', onInputChange);
@@ -26,7 +27,23 @@ startEl.addEventListener('click', start);
 
 // функция запуска таймера
 function start() {
+  const startTime = selectedDate;
 
+  intervalId = setInterval(() => {
+    const currentTime = Date.now();
+    const deltaTime = startTime - currentTime;
+
+    const { days, hours, minutes, seconds } = convertMs(deltaTime);
+
+    if (deltaTime < 0) {
+      clearInterval(intervalId);
+      return;
+    }
+
+    startEl.disabled = true;
+
+    updateTimer({ days, hours, minutes, seconds });
+  }, 1000);
 }
 
 // Объект параметров (из ТЗ)
