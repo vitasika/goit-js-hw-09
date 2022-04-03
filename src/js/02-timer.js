@@ -60,7 +60,7 @@ const options = {
 
 //инициализирует библиотеку flatpickr с параметрами options
 const calendar = flatpickr('#datetime-picker', options);
-console.log(calendar);
+//console.log(calendar);
 
 // Ф-ция принимает объект данных { days, hours, minutes, seconds } и присваивает соотв. значения свойствам textContent, соотв. элементов span 
 function updateTimer({ days, hours, minutes, seconds }) {
@@ -96,9 +96,9 @@ function convertMs(ms) {
     return { days, hours, minutes, seconds };
 }
 
-console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
+//console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
+//console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
+//console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
 
 
